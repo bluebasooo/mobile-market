@@ -1,11 +1,13 @@
 package ru.bluebasooo.market.mobilemarket.entity.mobile;
 
 import lombok.Value;
+import org.springframework.data.annotation.Id;
 
 import java.util.List;
 
 @Value
 public class MobileEntity {
+    @Id
     String id;
     Double price;
     MobileInfoEntity mobileInfo;
