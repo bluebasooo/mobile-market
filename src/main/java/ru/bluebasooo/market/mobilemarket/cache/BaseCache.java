@@ -1,14 +1,19 @@
 package ru.bluebasooo.market.mobilemarket.cache;
 
-import ru.bluebasooo.market.mobilemarket.entity.basket.BasketEntity;
-
 import java.util.*;
 
 public class BaseCache<Key, Value> { //TODO implement LRU + shard
 
-    private LinkedHashMap<Key, Value> hotCache;
+    private static final int MAX_CACHE_SIZE = 1024;
 
-    private Map<Key, Value> old;
+    private final LinkedHashMap<Key, Value> hotCache;
+
+    private final Map<Key, Value> old;
+
+    public BaseCache() {
+        hotCache = new LinkedHashMap<>();
+        old = new HashMap<>();
+    }
 
     public int getOldSize() {
         return old.size();
@@ -29,7 +34,10 @@ public class BaseCache<Key, Value> { //TODO implement LRU + shard
             return;
         }
 
-
+        hotCache.put(key, value);
+        if (hotCache.size() > MAX_CACHE_SIZE) {
+            cleanCache();
+        }
     }
 
     public Collection<Value> getOld() {
@@ -38,4 +46,13 @@ public class BaseCache<Key, Value> { //TODO implement LRU + shard
         return toFetch;
     }
 
+    private void cleanCache() {
+        hotCache.entrySet()
+                .stream()
+                .skip(MAX_CACHE_SIZE - 1)
+                .forEach(entry -> {
+                    var removed = hotCache.remove(entry.getKey());
+                    old.put(entry.getKey(), entry.getValue());
+                });
+    }
 }
