@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import ru.bluebasooo.market.mobilemarket.data.mobile.MobileAdminDao;
-import ru.bluebasooo.market.mobilemarket.entity.mobile.MobileEntity;
+import ru.bluebasooo.market.mobilemarket.data.mobile.entity.mobile.MobileEntity;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,7 +16,7 @@ public class MobileMongoAdminDao implements MobileAdminDao {
 
     @Override
     public void create(MobileEntity entity) {
-        template.insert(entity, "mobile");
+        template.insert(entity, "src/proto/mobile");
     }
 
     @Override
@@ -27,19 +27,19 @@ public class MobileMongoAdminDao implements MobileAdminDao {
                 .set("mobileInfo", updateForEntity.getMobileInfo())
                 .set("imgUrls", updateForEntity.getImgUrls());
 
-        template.updateFirst(query, updateQuery, MobileEntity.class, "mobile");
+        template.updateFirst(query, updateQuery, MobileEntity.class, "src/proto/mobile");
     }
 
     @Override
     public void delete(String id) {
         var query = Query.query(Criteria.where("_id").is(id));
 
-        template.remove(query, MobileEntity.class, "mobile");
+        template.remove(query, MobileEntity.class, "src/proto/mobile");
     }
 
     @Override
     public List<MobileEntity> findAll() {
-        return template.findAll(MobileEntity.class, "mobile");
+        return template.findAll(MobileEntity.class, "src/proto/mobile");
     }
 
     @Override
@@ -47,7 +47,7 @@ public class MobileMongoAdminDao implements MobileAdminDao {
         var query = Query.query(Criteria.where("_id").is(id));
 
         return Optional.ofNullable(
-                template.findOne(query, MobileEntity.class, "mobile")
+                template.findOne(query, MobileEntity.class, "src/proto/mobile")
         );
     }
 }

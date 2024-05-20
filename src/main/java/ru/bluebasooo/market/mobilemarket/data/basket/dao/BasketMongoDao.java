@@ -1,13 +1,12 @@
-package ru.bluebasooo.market.mobilemarket.data.mobile.basket.dao;
+package ru.bluebasooo.market.mobilemarket.data.basket.dao;
 
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import ru.bluebasooo.market.mobilemarket.data.mobile.basket.BasketDao;
-import ru.bluebasooo.market.mobilemarket.entity.basket.BasketEntity;
+import ru.bluebasooo.market.mobilemarket.data.basket.BasketDao;
+import ru.bluebasooo.market.mobilemarket.data.basket.entity.basket.BasketEntity;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
 
 public class BasketMongoDao implements BasketDao {

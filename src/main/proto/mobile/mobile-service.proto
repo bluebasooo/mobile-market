@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package mobile;
+
+import "google/protobuf/empty.proto";
+import "mobile/mobile-info.proto";
+
+option java_package = "ru.bluebasooo.market.mobilemarket.grpc.proto";
+option java_multiple_files = true;
+
+service MobileAdminService {
+  rpc CreateMobile(MobileRequest) returns (google.protobuf.Empty);
+  rpc FindMobile(MobileId) returns (MobileResponse);
+  rpc UpdateMobile(MobileRequest) returns (google.protobuf.Empty);
+  rpc DeleteMobile(MobileId) returns (google.protobuf.Empty);
+  rpc FindAllMobiles(google.protobuf.Empty) returns (MobilesResponse);
+}
+
+message MobileRequest {
+  optional MobileId id = 1; //in creation id not exists yet, but we need it in updates
+  double price = 2;
+  MobileInfoProto info = 3;
+  repeated string img_urls = 4;
+}
+
+message MobilesResponse {
+  repeated MobileResponse mobiles = 1;
+}
+
+message MobileResponse {
+  MobileId id = 1;
+  double price = 2;
+  MobileInfoProto info = 3;
+  repeated string img_urls = 4;
+}
+
+message MobileId {
+  string id = 1;
+}

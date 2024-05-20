@@ -1,4 +1,4 @@
-package ru.bluebasooo.market.mobilemarket.entity.basket;
+package ru.bluebasooo.market.mobilemarket.data.basket.entity.basket;
 
 import lombok.Value;
 import org.springframework.data.annotation.Id;

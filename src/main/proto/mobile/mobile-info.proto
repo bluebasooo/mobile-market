@@ -1,0 +1,116 @@
+syntax = "proto3";
+
+package mobile;
+
+option java_package = "ru.bluebasooo.market.mobilemarket.grpc.mobile.proto";
+option java_multiple_files = true;
+
+message MobileInfoProto {
+  CommonInfoProto common_info = 1;
+  CellInfoProto cell_info = 2;
+  ScreenInfoProto screen_info = 3;
+  ConstructionInfoProto construction_info = 4;
+  OsInfoProto os_info = 5;
+  MemoryInfoProto memory_info = 6;
+  CameraInfoProto camera_info = 7;
+  AudioInfoProto audio_info = 8;
+  AdditionalInfoProto additional_info = 9;
+  AccumulatorInfoProto accumulater_info = 10;
+  SizeInfoProto size_info = 11;
+}
+
+enum MobileTypeProto {
+  SMARTPHONE = 0;
+}
+
+message CommonInfoProto {
+  MobileTypeProto type = 1;
+  string full_name = 2;
+  string year_release = 3;
+}
+
+message CellInfoProto {
+  bool nfc_support = 1;
+  string bluetooth_version = 2;
+  string wifi_standard = 3;
+}
+
+message ScreenInfoProto {
+  string size = 1;
+  string size_in_pixels = 2;
+  string matrix_type = 3;
+  string screen_updates_gz = 4;
+  string pixels_density = 5;
+  string ratio = 6;
+}
+
+message ConstructionInfoProto {
+  string corpus_type = 1;
+  string screen_saver = 2;
+  repeated string materials = 3;
+  repeated string protections = 4;
+}
+
+enum OsTypeProto {
+  ANDROID = 0;
+}
+
+message OsInfoProto {
+  OsTypeProto os_type = 1;
+  int32 processor_cores = 2;
+  double max_processor_frequency = 3;
+  int32 processor_size = 4;
+  string version = 5;
+  string os_name = 6;
+  string processor_type = 7;
+  string processor_configuration_info = 8;
+  string graphic_processor = 9;
+}
+
+message MemoryInfoProto {
+  int32 ram_size_gb = 1;
+  int32 hdd_size_gb = 2;
+  int32 memory_card_max_size_gb = 3;
+  string ram_type = 4;
+  repeated string slots = 5;
+  repeated string support_cards_types = 6;
+}
+
+message CameraInfoProto {
+  int32 cameras = 1;
+  int32 max_zoom = 2;
+  repeated int32 megapixels = 3;
+  repeated string support_video_resolutions = 4;
+  repeated string support_video_codecs = 5;
+}
+
+message AudioInfoProto {
+  bool fm_support = 1;
+  repeated string audio_codecs = 2;
+}
+
+message AdditionalInfoProto {
+  bool biometric_support = 1;
+  bool headphone_in_box = 2;
+  bool charge_in_box = 3;
+  repeated string box_in_items = 4;
+}
+
+message AccumulatorInfoProto {
+  bool fast_charge = 1;
+  bool remote_charge = 2;
+  bool otg_support = 3;
+  int32 ttl_music_listening = 4;
+  int32 ttl_video_viewing = 5;
+  int32 battery_capacity = 6;
+  string charge_interface = 7;
+  string accumulator_type = 8;
+  string headphone_interface = 9;
+}
+
+message SizeInfoProto {
+  double length = 1;
+  double width = 2;
+  double height = 3;
+  double weight = 4;
+}

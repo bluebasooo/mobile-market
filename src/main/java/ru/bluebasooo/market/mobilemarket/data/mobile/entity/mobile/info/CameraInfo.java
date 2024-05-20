@@ -1,4 +1,4 @@
-package ru.bluebasooo.market.mobilemarket.entity.mobile.info;
+package ru.bluebasooo.market.mobilemarket.data.mobile.entity.mobile.info;
 
 import lombok.Value;
 
@@ -6,9 +6,9 @@ import java.util.List;
 
 @Value
 public class CameraInfo {
-    Integer camerasNums;
+    Integer cameras;
     List<Integer> megapixels;
     Integer maxZoom;
-    List<String> supportVideoResolutions;
+    List<String> supportedVideoResolutions;
     List<String> supportedVideoCodecs;
 }

@@ -1,6 +1,7 @@
-package ru.bluebasooo.market.mobilemarket.entity.mobile;
+package ru.bluebasooo.market.mobilemarket.data.mobile.entity.mobile;
 
 import lombok.Value;
+import ru.bluebasooo.market.mobilemarket.data.mobile.entity.mobile.info.*;
 import ru.bluebasooo.market.mobilemarket.entity.mobile.info.*;
 
 @Value
@@ -14,6 +15,6 @@ public class MobileInfoEntity {
     CameraInfo cameraInfo;
     AudioInfo audioInfo;
     AdditionalInfo additionalInfo;
-    AccumulaterInfo accumulaterInfo;
+    AccumulatorInfo accumulatorInfo;
     SizeInfo sizeInfo;
 }

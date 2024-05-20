@@ -1,4 +1,4 @@
-package ru.bluebasooo.market.mobilemarket.entity.mobile.info;
+package ru.bluebasooo.market.mobilemarket.data.mobile.entity.mobile.info;
 
 import lombok.Value;
 
@@ -9,5 +9,5 @@ public class AdditionalInfo {
     boolean isBiometricSupport;
     boolean isHeadphoneInComplect;
     boolean isChargeInComplect;
-    List<String> complectation;
+    List<String> boxInItems;
 }

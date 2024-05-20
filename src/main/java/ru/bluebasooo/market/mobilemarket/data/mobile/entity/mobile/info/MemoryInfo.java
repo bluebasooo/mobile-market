@@ -1,4 +1,4 @@
-package ru.bluebasooo.market.mobilemarket.entity.mobile.info;
+package ru.bluebasooo.market.mobilemarket.data.mobile.entity.mobile.info;
 
 import lombok.Value;
 
@@ -11,5 +11,5 @@ public class MemoryInfo {
     Integer hdrSize;
     List<String> slots;
     List<String> supportCards;
-    Integer maxValueOfMemoryCard;
+    Integer memoryCardMaxSizeGb;
 }

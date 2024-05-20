@@ -4,7 +4,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import ru.bluebasooo.market.mobilemarket.data.mobile.MobileDao;
-import ru.bluebasooo.market.mobilemarket.entity.mobile.MobileEntity;
+import ru.bluebasooo.market.mobilemarket.data.mobile.entity.mobile.MobileEntity;
 
 import java.util.Optional;
 
@@ -16,7 +16,7 @@ public class MobileMongoDao implements MobileDao {
         var query = Query.query(Criteria.where("_id").is(id));
 
         return Optional.ofNullable(
-                template.findOne(query, MobileEntity.class, "mobile")
+                template.findOne(query, MobileEntity.class, "src/proto/mobile")
         );
     }
 }

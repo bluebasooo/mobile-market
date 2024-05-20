@@ -1,19 +1,17 @@
 package ru.bluebasooo.market.mobilemarket.cache.basket;
 
 import ru.bluebasooo.market.mobilemarket.cache.BaseCache;
-import ru.bluebasooo.market.mobilemarket.data.mobile.basket.BasketDao;
-import ru.bluebasooo.market.mobilemarket.entity.basket.BasketEntity;
+import ru.bluebasooo.market.mobilemarket.data.basket.BasketDao;
+import ru.bluebasooo.market.mobilemarket.data.basket.entity.basket.BasketEntity;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class BasketCache { //TODO interface
-    //TODO executor
     private final BasketDao basketDao;
     private final BaseCache<String, BasketEntity> cache;
     private final ExecutorService executorService;
 
-    //TODO Lru map which batches updates
     public BasketCache(
             BasketDao basketDao
     ) {
