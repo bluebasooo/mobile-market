@@ -1,10 +1,12 @@
 package ru.bluebasooo.market.mobilemarket.data.mobile.entity.mobile.info;
 
+import lombok.Builder;
 import lombok.Value;
 
 import java.util.List;
 
 @Value
+@Builder
 public class ConstructionInfo {
     String corpusType;
     String screenSaver;

@@ -1,13 +1,15 @@
 package ru.bluebasooo.market.mobilemarket.data.mobile.entity.mobile.info;
 
+import lombok.Builder;
 import lombok.Value;
 
 @Value
+@Builder
 public class ScreenInfo {
     String size;
-    String sizeInPixels; //TODO better name
+    String sizeInPixels;
     String matrixType;
     String screenUpdatesGz;
-    String pixelsDensity; //TODO more information name
+    String pixelsDensity;
     String ratio;
 }

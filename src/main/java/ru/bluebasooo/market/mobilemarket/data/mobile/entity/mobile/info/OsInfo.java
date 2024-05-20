@@ -1,16 +1,18 @@
 package ru.bluebasooo.market.mobilemarket.data.mobile.entity.mobile.info;
 
+import lombok.Builder;
 import lombok.Value;
 
 @Value
+@Builder
 public class OsInfo {
     OsType osType;
     String version;
     String osName;
     String processorType;
     Integer processorCores;
-    String maxProcessorFrequency;
+    Double maxProcessorFrequency;
     String processorConfigurationInfo;
-    String processorSize;
+    Integer processorSize;
     String graphicProcessor;
 }

@@ -1,10 +1,11 @@
 package ru.bluebasooo.market.mobilemarket.data.mobile.entity.mobile;
 
+import lombok.Builder;
 import lombok.Value;
 import ru.bluebasooo.market.mobilemarket.data.mobile.entity.mobile.info.*;
-import ru.bluebasooo.market.mobilemarket.entity.mobile.info.*;
 
 @Value
+@Builder
 public class MobileInfoEntity {
     CommonInfo commonInfo;
     CellInfo cellInfo;
