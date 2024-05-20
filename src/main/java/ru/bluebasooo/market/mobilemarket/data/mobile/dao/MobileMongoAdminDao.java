@@ -4,15 +4,21 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.stereotype.Repository;
 import ru.bluebasooo.market.mobilemarket.data.mobile.MobileAdminDao;
 import ru.bluebasooo.market.mobilemarket.data.mobile.entity.mobile.MobileEntity;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class MobileMongoAdminDao implements MobileAdminDao {
 
-    private MongoTemplate template;
+    private final MongoTemplate template;
+
+    public MobileMongoAdminDao(MongoTemplate template) {
+        this.template = template;
+    }
 
     @Override
     public void create(MobileEntity entity) {

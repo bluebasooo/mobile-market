@@ -14,6 +14,12 @@ public class MobileAdminDtoToEntityMapper {
 
     private final MobileInfoAdminDtoToEntityMapper mobileInfoMapper;
 
+    public MobileAdminDtoToEntityMapper(
+            MobileInfoAdminDtoToEntityMapper mobileInfoMapper
+    ) {
+        this.mobileInfoMapper = mobileInfoMapper;
+    }
+
     public MobileEntity toEntity(MobileRequest mobileRequest) {
         var builder = MobileEntity.builder()
                 .price(mobileRequest.getPrice())
