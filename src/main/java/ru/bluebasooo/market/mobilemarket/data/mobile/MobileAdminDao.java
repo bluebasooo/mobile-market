@@ -1,6 +1,6 @@
 package ru.bluebasooo.market.mobilemarket.data.mobile;
 
-import ru.bluebasooo.market.mobilemarket.data.mobile.entity.mobile.MobileEntity;
+import ru.bluebasooo.market.mobilemarket.data.mobile.entity.MobileEntity;
 
 import java.util.List;
 

@@ -2,7 +2,7 @@ package ru.bluebasooo.market.mobilemarket.cache.basket;
 
 import ru.bluebasooo.market.mobilemarket.cache.BaseCache;
 import ru.bluebasooo.market.mobilemarket.data.basket.BasketDao;
-import ru.bluebasooo.market.mobilemarket.data.basket.entity.basket.BasketEntity;
+import ru.bluebasooo.market.mobilemarket.data.basket.entity.BasketEntity;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

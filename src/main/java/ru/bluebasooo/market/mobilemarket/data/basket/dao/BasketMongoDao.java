@@ -4,7 +4,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import ru.bluebasooo.market.mobilemarket.data.basket.BasketDao;
-import ru.bluebasooo.market.mobilemarket.data.basket.entity.basket.BasketEntity;
+import ru.bluebasooo.market.mobilemarket.data.basket.entity.BasketEntity;
 
 import java.util.Collection;
 import java.util.Optional;

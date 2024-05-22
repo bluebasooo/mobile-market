@@ -1,6 +1,6 @@
 package ru.bluebasooo.market.mobilemarket.data.basket;
 
-import ru.bluebasooo.market.mobilemarket.data.basket.entity.basket.BasketEntity;
+import ru.bluebasooo.market.mobilemarket.data.basket.entity.BasketEntity;
 
 import java.util.Collection;
 import java.util.Optional;

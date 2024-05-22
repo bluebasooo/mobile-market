@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 import ru.bluebasooo.market.mobilemarket.data.mobile.MobileAdminDao;
-import ru.bluebasooo.market.mobilemarket.data.mobile.entity.mobile.MobileEntity;
+import ru.bluebasooo.market.mobilemarket.data.mobile.entity.MobileEntity;
 
 import java.util.List;
 import java.util.Optional;

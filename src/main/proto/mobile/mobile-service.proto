@@ -19,8 +19,10 @@ service MobileAdminService {
 message MobileRequest {
   optional MobileId id = 1; //in creation id not exists yet, but we need it in updates
   double price = 2;
-  MobileInfoProto info = 3;
-  repeated string img_urls = 4;
+  string name = 3;
+  string brand = 4;
+  MobileInfoProto info = 5;
+  repeated string img_urls = 6;
 }
 
 message MobilesResponse {
@@ -30,8 +32,10 @@ message MobilesResponse {
 message MobileResponse {
   MobileId id = 1;
   double price = 2;
-  MobileInfoProto info = 3;
-  repeated string img_urls = 4;
+  string name = 3;
+  string brand = 4;
+  MobileInfoProto info = 5;
+  repeated string img_urls = 6;
 }
 
 message MobileId {
