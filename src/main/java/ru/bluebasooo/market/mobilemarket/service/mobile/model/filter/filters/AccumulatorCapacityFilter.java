@@ -29,7 +29,7 @@ public class AccumulatorCapacityFilter implements MinMaxFilter<Integer>, Matchab
 
     @Override
     public boolean isMatch(Mobile mobile) {
-        var battaryCapacity = mobile.getMobileInfo().getAccumulatorInfoEntity().getBatteryCapacity();
+        var battaryCapacity = mobile.getMobileInfo().getAccumulatorInfo().getBatteryCapacity();
 
         return match(battaryCapacity);
     }

@@ -28,7 +28,7 @@ public class ReleaseYearFilter implements MinMaxFilter<Integer>, MatchableFilter
 
     @Override
     public boolean isMatch(Mobile mobile) {
-        var yearRelease = mobile.getMobileInfo().getCommonInfoEntity().getYearRelease();
+        var yearRelease = mobile.getMobileInfo().getCommonInfo().getYearRelease();
 
         return match(yearRelease);
     }

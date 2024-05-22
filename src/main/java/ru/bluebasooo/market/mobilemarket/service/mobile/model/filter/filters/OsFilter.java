@@ -32,7 +32,7 @@ public class OsFilter implements IncludeExcludeFilter<String>, MatchableFilter {
 
     @Override
     public boolean isMatch(Mobile mobile) {
-        var os = mobile.getMobileInfo().getOsInfoEntity().getOsName();
+        var os = mobile.getMobileInfo().getOsInfo().getOsName();
 
         return match(os);
     }

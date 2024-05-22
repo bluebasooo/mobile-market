@@ -32,7 +32,7 @@ public class ProcessorCoresFilter implements IncludeExcludeFilter<Integer>, Matc
 
     @Override
     public boolean isMatch(Mobile mobile) {
-        var processorCores = mobile.getMobileInfo().getOsInfoEntity().getProcessorCores();
+        var processorCores = mobile.getMobileInfo().getOsInfo().getProcessorCores();
 
         return match(processorCores);
     }

@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  mobile-market:
+    container_name: mobile-market
+    build: .
+    expose:
+      - 80
+      - 90
+    ports:
+      - 80:80
+    environment:
+      - MDB_HOST=mongodb
+      - MDB_PORT=27017
+      - MDB_USERNAME=mongo
+      - MDB_PASSWORD=123
+      - MDB_NAME=market
+    networks:
+      - default
+    depends_on:
+      - mongodb
+  mongodb:
+    container_name: mongodb-market
+    image: mongo:6.0.5
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: 123
+      MONGO_INITDB_DATABASE: market
+    ports:
+      - "27017:27017"
+    networks:
+      - default
+
+networks:
+ default:
+    driver: bridge

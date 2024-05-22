@@ -28,7 +28,7 @@ public class WidthFilter implements MinMaxFilter<Double>, MatchableFilter {
 
     @Override
     public boolean isMatch(Mobile mobile) {
-        var width = mobile.getMobileInfo().getSizeInfoEntity().getWidth();
+        var width = mobile.getMobileInfo().getSizeInfo().getWidth();
 
         return match(width);
     }

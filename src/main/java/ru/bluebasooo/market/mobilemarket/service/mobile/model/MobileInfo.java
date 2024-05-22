@@ -8,7 +8,7 @@ import ru.bluebasooo.market.mobilemarket.service.mobile.model.info.*;
 @Value
 @Builder
 public class MobileInfo {
-    CommonInfoEntity commonInfo;
+    CommonInfo commonInfo;
     CellInfo cellInfo;
     ScreenInfo screenInfo;
     ConstructionInfo constructionInfo;

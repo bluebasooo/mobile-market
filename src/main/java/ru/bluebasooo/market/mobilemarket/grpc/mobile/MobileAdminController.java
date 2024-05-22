@@ -3,11 +3,11 @@ package ru.bluebasooo.market.mobilemarket.grpc.mobile;
 import com.google.protobuf.Empty;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
-import org.springframework.stereotype.Controller;
+import net.devh.boot.grpc.server.service.GrpcService;
 import ru.bluebasooo.market.mobilemarket.grpc.proto.*;
 import ru.bluebasooo.market.mobilemarket.service.mobile.MobileAdminService;
 
-@Controller
+@GrpcService
 public class MobileAdminController extends MobileAdminServiceGrpc.MobileAdminServiceImplBase {
 
     private final MobileAdminService mobileAdminService;

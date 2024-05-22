@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: mobile-market
+  data:
+    mongodb:
+      uri: "mongodb://${MDB_USERNAME}:${MDB_PASSWORD}@${MDB_HOST}:${MDB_PORT}/${MDB_NAME}?authSource=admin"
+
+grpc:
+  server:
+    port: 90
+    permit-keep-alive-without-calls: true

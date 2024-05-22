@@ -32,7 +32,7 @@ public class HddCapacityFilter implements IncludeExcludeFilter<Integer>, Matchab
 
     @Override
     public boolean isMatch(Mobile mobile) {
-        var hddCapacity = mobile.getMobileInfo().getMemoryInfoEntity().getHddSizeGb();
+        var hddCapacity = mobile.getMobileInfo().getMemoryInfo().getHddSizeGb();
 
         return match(hddCapacity);
     }

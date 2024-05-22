@@ -32,7 +32,7 @@ public class RamCapacityFilter implements IncludeExcludeFilter<Integer>, Matchab
 
     @Override
     public boolean isMatch(Mobile mobile) {
-        var ramCapacity = mobile.getMobileInfo().getMemoryInfoEntity().getRamSizeGb();
+        var ramCapacity = mobile.getMobileInfo().getMemoryInfo().getRamSizeGb();
 
         return match(ramCapacity);
     }

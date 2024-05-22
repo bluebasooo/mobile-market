@@ -1,5 +1,6 @@
 package ru.bluebasooo.market.mobilemarket.data.mobile.dao;
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;

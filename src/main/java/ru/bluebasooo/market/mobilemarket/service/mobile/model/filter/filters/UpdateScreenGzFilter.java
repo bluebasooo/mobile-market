@@ -32,7 +32,7 @@ public class UpdateScreenGzFilter implements IncludeExcludeFilter<Integer>, Matc
 
     @Override
     public boolean isMatch(Mobile mobile) {
-        var updateScreenGz = mobile.getMobileInfo().getScreenInfoEntity().getScreenUpdatesGz();
+        var updateScreenGz = mobile.getMobileInfo().getScreenInfo().getScreenUpdatesGz();
 
         return match(updateScreenGz);
     }

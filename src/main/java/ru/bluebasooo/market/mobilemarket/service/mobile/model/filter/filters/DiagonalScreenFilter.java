@@ -19,7 +19,7 @@ public class DiagonalScreenFilter implements MinMaxFilter<Double>, MatchableFilt
 
     @Override
     public boolean isMatch(Mobile mobile) {
-        var diagonal = mobile.getMobileInfo().getScreenInfoEntity().getDiagonal();
+        var diagonal = mobile.getMobileInfo().getScreenInfo().getDiagonal();
 
         return match(diagonal);
     }

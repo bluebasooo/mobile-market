@@ -14,7 +14,7 @@ import java.util.List;
 public class MobileReadService {
 
     private final MobileDao mobileDao;
-    private final MobilesCache mobilesCache;
+    private MobilesCache mobilesCache;
     private final MobileReadEntityToModelMapper mapper;
 
     public MobileReadService(
@@ -23,6 +23,9 @@ public class MobileReadService {
     ) {
         this.mobileDao = mobileDao;
         this.mapper = mapper;
+    }
+
+    public void initCache() {
         var allMobiles = mobileDao.findAll()
                 .stream()
                 .map(mapper::toModel)
@@ -45,6 +48,8 @@ public class MobileReadService {
     }
 
     public List<Mobile> findMobile(String name, List<MatchableFilter> filter) {
+        if (mobilesCache == null) initCache();
+
         if (name == null && filter == null) {
             mobilesCache.filter(new Filter(List.of()));
         }

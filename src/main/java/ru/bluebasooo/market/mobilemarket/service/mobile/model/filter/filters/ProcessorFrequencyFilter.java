@@ -28,7 +28,7 @@ public class ProcessorFrequencyFilter implements MinMaxFilter<Double>, Matchable
 
     @Override
     public boolean isMatch(Mobile mobile) {
-        var processorFrequency = mobile.getMobileInfo().getOsInfoEntity().getMaxProcessorFrequency();
+        var processorFrequency = mobile.getMobileInfo().getOsInfo().getMaxProcessorFrequency();
 
         return match(processorFrequency);
     }
