@@ -1,7 +1,8 @@
-package ru.bluebasooo.market.mobilemarket.data.mobile.entity.info;
+package ru.bluebasooo.market.mobilemarket.service.mobile.model.info;
 
 import lombok.Builder;
 import lombok.Value;
+import ru.bluebasooo.market.mobilemarket.data.mobile.entity.info.OsType;
 
 @Value
 @Builder

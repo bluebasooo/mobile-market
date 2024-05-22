@@ -7,10 +7,10 @@ import java.util.List;
 
 @Value
 @Builder
-public class MemoryInfo {
+public class MemoryInfoEntity {
     String ramType;
     Integer ramSizeGb;
-    Integer hdrSizeGb;
+    Integer hddSizeGb;
     List<String> slots;
     List<String> supportCards;
     Integer memoryCardMaxSizeGb;

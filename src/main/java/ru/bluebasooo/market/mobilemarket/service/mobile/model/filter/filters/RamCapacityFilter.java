@@ -1,23 +1,39 @@
 package ru.bluebasooo.market.mobilemarket.service.mobile.model.filter.filters;
 
-import lombok.Value;
+import ru.bluebasooo.market.mobilemarket.service.mobile.model.Mobile;
 import ru.bluebasooo.market.mobilemarket.service.mobile.model.filter.IncludeExcludeFilter;
+import ru.bluebasooo.market.mobilemarket.service.mobile.model.filter.MatchableFilter;
 
-import java.util.List;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
-@Value
-public class RamCapacityFilter implements IncludeExcludeFilter<Integer> {
+public class RamCapacityFilter implements IncludeExcludeFilter<Integer>, MatchableFilter {
+    private Set<Integer> includeRamCapacity = Set.of();
+    private Set<Integer> excludeRamCapacity = Set.of();
 
-    List<Integer> includeRamCapacity;
-    List<Integer> excludeRamCapacity;
+    public RamCapacityFilter(
+            Collection<Integer> include,
+            Collection<Integer> exclude
+    ) {
+        this.includeRamCapacity = include == null ? includeRamCapacity : new HashSet<>(include);
+        this.excludeRamCapacity = exclude == null ? excludeRamCapacity : new HashSet<>(exclude);
+    }
 
     @Override
-    public List<Integer> includes() {
+    public Collection<Integer> includes() {
         return includeRamCapacity;
     }
 
     @Override
-    public List<Integer> excludes() {
+    public Collection<Integer> excludes() {
         return excludeRamCapacity;
+    }
+
+    @Override
+    public boolean isMatch(Mobile mobile) {
+        var ramCapacity = mobile.getMobileInfo().getMemoryInfoEntity().getRamSizeGb();
+
+        return match(ramCapacity);
     }
 }

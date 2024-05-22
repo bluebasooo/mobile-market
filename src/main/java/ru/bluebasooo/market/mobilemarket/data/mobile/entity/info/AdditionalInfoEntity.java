@@ -7,9 +7,9 @@ import java.util.List;
 
 @Value
 @Builder
-public class ConstructionInfo {
-    String corpusType;
-    String screenSaver;
-    List<String> materials;
-    List<String> protections;
+public class AdditionalInfoEntity {
+    boolean isBiometricSupport;
+    boolean isHeadphoneInBox;
+    boolean isChargeInBox;
+    List<String> boxInItems;
 }

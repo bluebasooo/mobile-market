@@ -25,8 +25,8 @@ enum MobileTypeProto {
 
 message CommonInfoProto {
   MobileTypeProto type = 1;
-  string full_name = 2;
-  string year_release = 3;
+  int32 year_release = 2;
+  string full_name = 3;
 }
 
 message CellInfoProto {
@@ -36,10 +36,10 @@ message CellInfoProto {
 }
 
 message ScreenInfoProto {
-  string size = 1;
-  string size_in_pixels = 2;
-  string matrix_type = 3;
-  string screen_updates_gz = 4;
+  double diagonal = 1;
+  int32 screen_updates_gz = 2;
+  string size_in_pixels = 3;
+  string matrix_type = 4;
   string pixels_density = 5;
   string ratio = 6;
 }

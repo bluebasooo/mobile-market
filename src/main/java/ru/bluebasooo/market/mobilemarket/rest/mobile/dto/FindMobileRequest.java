@@ -5,7 +5,6 @@ import lombok.Value;
 
 @Value
 public class FindMobileRequest {
-    double minPrice;
-    double maxPrice;
-
+    String searchRequest;
+    FilterDto filterDto;
 }

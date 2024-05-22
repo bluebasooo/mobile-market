@@ -12,7 +12,6 @@ public enum FilterType {
     PROCESSOR_FREQUENCY,
     RAM_CAPACITY,
     RELEASE_YEAR,
-    SCREEN_RESOLUTION,
     UPDATE_SCREEN_GZ,
     WIDTH
 }

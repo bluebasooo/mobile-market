@@ -5,11 +5,11 @@ import lombok.Value;
 
 @Value
 @Builder
-public class ScreenInfo {
-    String size;
+public class ScreenInfoEntity {
+    Double diagonal;
     String sizeInPixels;
     String matrixType;
-    String screenUpdatesGz;
+    Integer screenUpdatesGz;
     String pixelsDensity;
     String ratio;
 }

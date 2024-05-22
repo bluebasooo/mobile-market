@@ -5,7 +5,7 @@ import lombok.Value;
 
 @Value
 @Builder
-public class SizeInfo {
+public class SizeInfoEntity {
     Double length;
     Double width;
     Double height;

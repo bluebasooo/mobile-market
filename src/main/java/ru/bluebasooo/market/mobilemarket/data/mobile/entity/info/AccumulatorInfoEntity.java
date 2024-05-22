@@ -5,7 +5,7 @@ import lombok.Value;
 
 @Value
 @Builder
-public class AccumulatorInfo {
+public class AccumulatorInfoEntity {
     String accumulatorType;
     Integer batteryCapacity;
     boolean isFastCharge;

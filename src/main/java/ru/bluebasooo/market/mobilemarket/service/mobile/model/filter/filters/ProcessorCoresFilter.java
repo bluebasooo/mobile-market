@@ -1,22 +1,39 @@
 package ru.bluebasooo.market.mobilemarket.service.mobile.model.filter.filters;
 
-import lombok.Value;
+import ru.bluebasooo.market.mobilemarket.service.mobile.model.Mobile;
 import ru.bluebasooo.market.mobilemarket.service.mobile.model.filter.IncludeExcludeFilter;
+import ru.bluebasooo.market.mobilemarket.service.mobile.model.filter.MatchableFilter;
 
-import java.util.List;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
-@Value
-public class ProcessorCoresFilter implements IncludeExcludeFilter<Integer> {
-    List<Integer> includeProcessorCores;
-    List<Integer> excludeProcessorCores;
+public class ProcessorCoresFilter implements IncludeExcludeFilter<Integer>, MatchableFilter {
+    private Set<Integer> includeProcessorCores = Set.of();
+    private Set<Integer> excludeProcessorCores = Set.of();
+
+    public ProcessorCoresFilter(
+            Collection<Integer> include,
+            Collection<Integer> exclude
+    ) {
+        this.includeProcessorCores = include == null ? includeProcessorCores : new HashSet<>(include);
+        this.excludeProcessorCores = exclude == null ? excludeProcessorCores : new HashSet<>(exclude);
+    }
 
     @Override
-    public List<Integer> includes() {
+    public Collection<Integer> includes() {
         return includeProcessorCores;
     }
 
     @Override
-    public List<Integer> excludes() {
+    public Collection<Integer> excludes() {
         return excludeProcessorCores;
+    }
+
+    @Override
+    public boolean isMatch(Mobile mobile) {
+        var processorCores = mobile.getMobileInfo().getOsInfoEntity().getProcessorCores();
+
+        return match(processorCores);
     }
 }

@@ -13,9 +13,9 @@ public class FilterDto {
     OsFilter osFilter;
     PriceFilter priceFilter;
     ProcessorCoresFilter processorCoresFilter;
+    ProcessorFrequencyFilter processorFrequencyFilter;
     RamCapacityFilter ramCapacityFilter;
     ReleaseYearFilter releaseYearFilter;
-    ScreenResolutionFilter screenResolutionFilter;
     UpdateScreenGzFilter updateScreenGzFilter;
     WidthFilter widthFilter;
 }

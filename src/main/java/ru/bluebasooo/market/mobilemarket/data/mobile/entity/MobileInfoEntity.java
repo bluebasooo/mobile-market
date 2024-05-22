@@ -7,15 +7,15 @@ import ru.bluebasooo.market.mobilemarket.data.mobile.entity.info.*;
 @Value
 @Builder
 public class MobileInfoEntity {
-    CommonInfo commonInfo;
-    CellInfo cellInfo;
-    ScreenInfo screenInfo;
-    ConstructionInfo constructionInfo;
-    OsInfo osInfo;
-    MemoryInfo memoryInfo;
-    CameraInfo cameraInfo;
-    AudioInfo audioInfo;
-    AdditionalInfo additionalInfo;
-    AccumulatorInfo accumulatorInfo;
-    SizeInfo sizeInfo;
+    CommonInfoEntity commonInfoEntity;
+    CellInfoEntity cellInfoEntity;
+    ScreenInfoEntity screenInfoEntity;
+    ConstructionInfoEntity constructionInfoEntity;
+    OsInfoEntity osInfoEntity;
+    MemoryInfoEntity memoryInfoEntity;
+    CameraInfoEntity cameraInfoEntity;
+    AudioInfoEntity audioInfoEntity;
+    AdditionalInfoEntity additionalInfoEntity;
+    AccumulatorInfoEntity accumulatorInfoEntity;
+    SizeInfoEntity sizeInfoEntity;
 }

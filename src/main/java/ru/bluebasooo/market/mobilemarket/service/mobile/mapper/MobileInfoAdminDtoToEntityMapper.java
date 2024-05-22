@@ -11,43 +11,43 @@ public class MobileInfoAdminDtoToEntityMapper {
 
     public MobileInfoEntity toEntity(MobileInfoProto mobileInfo) {
         return MobileInfoEntity.builder()
-                .commonInfo(toCommonInfo(mobileInfo.getCommonInfo()))
-                .cellInfo(toCellInfo(mobileInfo.getCellInfo()))
-                .screenInfo(toScreenInfo(mobileInfo.getScreenInfo()))
-                .constructionInfo(toConstructionInfo(mobileInfo.getConstructionInfo()))
-                .osInfo(toOsInfo(mobileInfo.getOsInfo()))
-                .memoryInfo(toMemoryInfo(mobileInfo.getMemoryInfo()))
-                .cameraInfo(toCameraInfo(mobileInfo.getCameraInfo()))
-                .audioInfo(toAudioInfo(mobileInfo.getAudioInfo()))
-                .additionalInfo(toAdditionalInfo(mobileInfo.getAdditionalInfo()))
-                .accumulatorInfo(toAccumulatorInfo(mobileInfo.getAccumulaterInfo()))
-                .sizeInfo(toSizeInfo(mobileInfo.getSizeInfo()))
+                .commonInfoEntity(toCommonInfo(mobileInfo.getCommonInfo()))
+                .cellInfoEntity(toCellInfo(mobileInfo.getCellInfo()))
+                .screenInfoEntity(toScreenInfo(mobileInfo.getScreenInfo()))
+                .constructionInfoEntity(toConstructionInfo(mobileInfo.getConstructionInfo()))
+                .osInfoEntity(toOsInfo(mobileInfo.getOsInfo()))
+                .memoryInfoEntity(toMemoryInfo(mobileInfo.getMemoryInfo()))
+                .cameraInfoEntity(toCameraInfo(mobileInfo.getCameraInfo()))
+                .audioInfoEntity(toAudioInfo(mobileInfo.getAudioInfo()))
+                .additionalInfoEntity(toAdditionalInfo(mobileInfo.getAdditionalInfo()))
+                .accumulatorInfoEntity(toAccumulatorInfo(mobileInfo.getAccumulaterInfo()))
+                .sizeInfoEntity(toSizeInfo(mobileInfo.getSizeInfo()))
                 .build();
     }
 
-    private CommonInfo toCommonInfo(CommonInfoProto commonInfoProto) {
+    private CommonInfoEntity toCommonInfo(CommonInfoProto commonInfoProto) {
         var mobileType = switch (commonInfoProto.getType()) {
             case SMARTPHONE -> MobileType.SMARTPHONE;
             case UNRECOGNIZED -> throw new IllegalArgumentException(); //TODO custom excpetion
         };
-        return CommonInfo.builder()
+        return CommonInfoEntity.builder()
                 .type(mobileType)
                 .fullName(commonInfoProto.getFullName())
                 .yearRelease(commonInfoProto.getYearRelease())
                 .build();
     }
 
-    private CellInfo toCellInfo(CellInfoProto cellInfoProto) {
-        return CellInfo.builder()
+    private CellInfoEntity toCellInfo(CellInfoProto cellInfoProto) {
+        return CellInfoEntity.builder()
                 .bluetoothVersion(cellInfoProto.getBluetoothVersion())
                 .wifiStandard(cellInfoProto.getWifiStandard())
                 .isNfcSupport(cellInfoProto.getNfcSupport())
                 .build();
     }
 
-    private ScreenInfo toScreenInfo(ScreenInfoProto screenInfoProto) {
-        return ScreenInfo.builder()
-                .size(screenInfoProto.getSize())
+    private ScreenInfoEntity toScreenInfo(ScreenInfoProto screenInfoProto) {
+        return ScreenInfoEntity.builder()
+                .diagonal(screenInfoProto.getDiagonal())
                 .sizeInPixels(screenInfoProto.getSizeInPixels())
                 .matrixType(screenInfoProto.getMatrixType())
                 .screenUpdatesGz(screenInfoProto.getScreenUpdatesGz())
@@ -56,8 +56,8 @@ public class MobileInfoAdminDtoToEntityMapper {
                 .build();
     }
 
-    private ConstructionInfo toConstructionInfo(ConstructionInfoProto constructionInfoProto) {
-        return ConstructionInfo.builder()
+    private ConstructionInfoEntity toConstructionInfo(ConstructionInfoProto constructionInfoProto) {
+        return ConstructionInfoEntity.builder()
                 .corpusType(constructionInfoProto.getCorpusType())
                 .screenSaver(constructionInfoProto.getScreenSaver())
                 .materials(constructionInfoProto.getMaterialsList())
@@ -65,13 +65,13 @@ public class MobileInfoAdminDtoToEntityMapper {
                 .build();
     }
 
-    private OsInfo toOsInfo(OsInfoProto osInfoProto) {
+    private OsInfoEntity toOsInfo(OsInfoProto osInfoProto) {
         var osType = switch (osInfoProto.getOsType()) {
             case ANDROID -> OsType.ANDROID;
             case UNRECOGNIZED -> throw new IllegalArgumentException();
         };
 
-        return OsInfo.builder()
+        return OsInfoEntity.builder()
                 .osType(osType)
                 .version(osInfoProto.getVersion())
                 .osName(osInfoProto.getOsName())
@@ -84,19 +84,19 @@ public class MobileInfoAdminDtoToEntityMapper {
                 .build();
     }
 
-    private MemoryInfo toMemoryInfo(MemoryInfoProto memoryInfoProto) {
-        return MemoryInfo.builder()
+    private MemoryInfoEntity toMemoryInfo(MemoryInfoProto memoryInfoProto) {
+        return MemoryInfoEntity.builder()
                 .ramType(memoryInfoProto.getRamType())
                 .ramSizeGb(memoryInfoProto.getRamSizeGb())
-                .hdrSizeGb(memoryInfoProto.getHddSizeGb())
+                .hddSizeGb(memoryInfoProto.getHddSizeGb())
                 .slots(memoryInfoProto.getSlotsList())
                 .supportCards(memoryInfoProto.getSupportCardsTypesList())
                 .memoryCardMaxSizeGb(memoryInfoProto.getMemoryCardMaxSizeGb())
                 .build();
     }
 
-    private CameraInfo toCameraInfo(CameraInfoProto cameraInfoProto) {
-        return CameraInfo.builder()
+    private CameraInfoEntity toCameraInfo(CameraInfoProto cameraInfoProto) {
+        return CameraInfoEntity.builder()
                 .cameras(cameraInfoProto.getCameras())
                 .megapixels(cameraInfoProto.getMegapixelsList())
                 .maxZoom(cameraInfoProto.getMaxZoom())
@@ -105,15 +105,15 @@ public class MobileInfoAdminDtoToEntityMapper {
                 .build();
     }
 
-    private AudioInfo toAudioInfo(AudioInfoProto audioInfoProto) {
-        return AudioInfo.builder()
+    private AudioInfoEntity toAudioInfo(AudioInfoProto audioInfoProto) {
+        return AudioInfoEntity.builder()
                 .audioCodecs(audioInfoProto.getAudioCodecsList())
                 .isFMSupported(audioInfoProto.getFmSupport())
                 .build();
     }
 
-    private AdditionalInfo toAdditionalInfo(AdditionalInfoProto additionalInfoProto) {
-        return AdditionalInfo.builder()
+    private AdditionalInfoEntity toAdditionalInfo(AdditionalInfoProto additionalInfoProto) {
+        return AdditionalInfoEntity.builder()
                 .isBiometricSupport(additionalInfoProto.getBiometricSupport())
                 .isHeadphoneInBox(additionalInfoProto.getHeadphoneInBox())
                 .isChargeInBox(additionalInfoProto.getChargeInBox())
@@ -121,8 +121,8 @@ public class MobileInfoAdminDtoToEntityMapper {
                 .build();
     }
 
-    private AccumulatorInfo toAccumulatorInfo(AccumulatorInfoProto accumulatorInfoProto) {
-        return AccumulatorInfo.builder()
+    private AccumulatorInfoEntity toAccumulatorInfo(AccumulatorInfoProto accumulatorInfoProto) {
+        return AccumulatorInfoEntity.builder()
                 .accumulatorType(accumulatorInfoProto.getAccumulatorType())
                 .batteryCapacity(accumulatorInfoProto.getBatteryCapacity())
                 .isFastCharge(accumulatorInfoProto.getFastCharge())
@@ -135,8 +135,8 @@ public class MobileInfoAdminDtoToEntityMapper {
                 .build();
     }
 
-    private SizeInfo toSizeInfo(SizeInfoProto sizeInfoProto) {
-        return SizeInfo.builder()
+    private SizeInfoEntity toSizeInfo(SizeInfoProto sizeInfoProto) {
+        return SizeInfoEntity.builder()
                 .length(sizeInfoProto.getLength())
                 .width(sizeInfoProto.getWidth())
                 .height(sizeInfoProto.getHeight())
@@ -146,135 +146,135 @@ public class MobileInfoAdminDtoToEntityMapper {
 
     public MobileInfoProto toDto(MobileInfoEntity entity) {
         return MobileInfoProto.newBuilder()
-                .setCommonInfo(toCommonInfoProto(entity.getCommonInfo()))
-                .setCellInfo(toCellInfoProto(entity.getCellInfo()))
-                .setScreenInfo(toScreenInfoProto(entity.getScreenInfo()))
-                .setConstructionInfo(toConstructionInfoProto(entity.getConstructionInfo()))
-                .setOsInfo(toOsInfoProto(entity.getOsInfo()))
-                .setMemoryInfo(toMemoryInfoProto(entity.getMemoryInfo()))
-                .setCameraInfo(toCameraInfoProto(entity.getCameraInfo()))
-                .setAudioInfo(toAudioInfoProto(entity.getAudioInfo()))
-                .setAdditionalInfo(toAdditionalInfoProto(entity.getAdditionalInfo()))
-                .setAccumulaterInfo(toAccumulatorInfoProto(entity.getAccumulatorInfo()))
-                .setSizeInfo(toSizeInfoProto(entity.getSizeInfo()))
+                .setCommonInfo(toCommonInfoProto(entity.getCommonInfoEntity()))
+                .setCellInfo(toCellInfoProto(entity.getCellInfoEntity()))
+                .setScreenInfo(toScreenInfoProto(entity.getScreenInfoEntity()))
+                .setConstructionInfo(toConstructionInfoProto(entity.getConstructionInfoEntity()))
+                .setOsInfo(toOsInfoProto(entity.getOsInfoEntity()))
+                .setMemoryInfo(toMemoryInfoProto(entity.getMemoryInfoEntity()))
+                .setCameraInfo(toCameraInfoProto(entity.getCameraInfoEntity()))
+                .setAudioInfo(toAudioInfoProto(entity.getAudioInfoEntity()))
+                .setAdditionalInfo(toAdditionalInfoProto(entity.getAdditionalInfoEntity()))
+                .setAccumulaterInfo(toAccumulatorInfoProto(entity.getAccumulatorInfoEntity()))
+                .setSizeInfo(toSizeInfoProto(entity.getSizeInfoEntity()))
                 .build();
     }
 
-    private CommonInfoProto toCommonInfoProto(CommonInfo commonInfo) {
-        var mobileTypeProto = switch(commonInfo.getType()) {
+    private CommonInfoProto toCommonInfoProto(CommonInfoEntity commonInfoEntity) {
+        var mobileTypeProto = switch(commonInfoEntity.getType()) {
             case SMARTPHONE -> MobileTypeProto.SMARTPHONE;
         };
 
         return CommonInfoProto.newBuilder()
                 .setType(mobileTypeProto)
-                .setFullName(commonInfo.getFullName())
-                .setYearRelease(commonInfo.getYearRelease())
+                .setFullName(commonInfoEntity.getFullName())
+                .setYearRelease(commonInfoEntity.getYearRelease())
                 .build();
     }
 
-    private CellInfoProto toCellInfoProto(CellInfo cellInfo) {
+    private CellInfoProto toCellInfoProto(CellInfoEntity cellInfoEntity) {
         return CellInfoProto.newBuilder()
-                .setBluetoothVersion(cellInfo.getBluetoothVersion())
-                .setWifiStandard(cellInfo.getWifiStandard())
-                .setNfcSupport(cellInfo.isNfcSupport())
+                .setBluetoothVersion(cellInfoEntity.getBluetoothVersion())
+                .setWifiStandard(cellInfoEntity.getWifiStandard())
+                .setNfcSupport(cellInfoEntity.isNfcSupport())
                 .build();
     }
 
-    private ScreenInfoProto toScreenInfoProto(ScreenInfo screenInfo) {
+    private ScreenInfoProto toScreenInfoProto(ScreenInfoEntity screenInfoEntity) {
         return ScreenInfoProto.newBuilder()
-                .setSize(screenInfo.getSize())
-                .setSizeInPixels(screenInfo.getSizeInPixels())
-                .setMatrixType(screenInfo.getMatrixType())
-                .setScreenUpdatesGz(screenInfo.getScreenUpdatesGz())
-                .setPixelsDensity(screenInfo.getPixelsDensity())
-                .setRatio(screenInfo.getRatio())
+                .setDiagonal(screenInfoEntity.getDiagonal())
+                .setSizeInPixels(screenInfoEntity.getSizeInPixels())
+                .setMatrixType(screenInfoEntity.getMatrixType())
+                .setScreenUpdatesGz(screenInfoEntity.getScreenUpdatesGz())
+                .setPixelsDensity(screenInfoEntity.getPixelsDensity())
+                .setRatio(screenInfoEntity.getRatio())
                 .build();
     }
 
-    private ConstructionInfoProto toConstructionInfoProto(ConstructionInfo constructionInfo) {
+    private ConstructionInfoProto toConstructionInfoProto(ConstructionInfoEntity constructionInfoEntity) {
         return ConstructionInfoProto.newBuilder()
-                .setCorpusType(constructionInfo.getCorpusType())
-                .setScreenSaver(constructionInfo.getScreenSaver())
-                .addAllMaterials(constructionInfo.getMaterials())
-                .addAllProtections(constructionInfo.getProtections())
+                .setCorpusType(constructionInfoEntity.getCorpusType())
+                .setScreenSaver(constructionInfoEntity.getScreenSaver())
+                .addAllMaterials(constructionInfoEntity.getMaterials())
+                .addAllProtections(constructionInfoEntity.getProtections())
                 .build();
     }
 
-    private OsInfoProto toOsInfoProto(OsInfo osInfo) {
-        var osType = switch (osInfo.getOsType()) {
+    private OsInfoProto toOsInfoProto(OsInfoEntity osInfoEntity) {
+        var osType = switch (osInfoEntity.getOsType()) {
             case ANDROID -> OsTypeProto.ANDROID;
         };
 
         return OsInfoProto.newBuilder()
                 .setOsType(osType)
-                .setVersion(osInfo.getVersion())
-                .setOsName(osInfo.getOsName())
-                .setProcessorType(osInfo.getProcessorType())
-                .setProcessorCores(osInfo.getProcessorCores())
-                .setMaxProcessorFrequency(osInfo.getMaxProcessorFrequency())
-                .setProcessorConfigurationInfo(osInfo.getProcessorConfigurationInfo())
-                .setProcessorSize(osInfo.getProcessorSize())
-                .setGraphicProcessor(osInfo.getGraphicProcessor())
+                .setVersion(osInfoEntity.getVersion())
+                .setOsName(osInfoEntity.getOsName())
+                .setProcessorType(osInfoEntity.getProcessorType())
+                .setProcessorCores(osInfoEntity.getProcessorCores())
+                .setMaxProcessorFrequency(osInfoEntity.getMaxProcessorFrequency())
+                .setProcessorConfigurationInfo(osInfoEntity.getProcessorConfigurationInfo())
+                .setProcessorSize(osInfoEntity.getProcessorSize())
+                .setGraphicProcessor(osInfoEntity.getGraphicProcessor())
                 .build();
     }
 
-    private MemoryInfoProto toMemoryInfoProto(MemoryInfo memoryInfo) {
+    private MemoryInfoProto toMemoryInfoProto(MemoryInfoEntity memoryInfoEntity) {
         return MemoryInfoProto.newBuilder()
-                .setRamType(memoryInfo.getRamType())
-                .setRamSizeGb(memoryInfo.getRamSizeGb())
-                .setHddSizeGb(memoryInfo.getRamSizeGb())
-                .setMemoryCardMaxSizeGb(memoryInfo.getMemoryCardMaxSizeGb())
-                .addAllSlots(memoryInfo.getSlots())
-                .addAllSupportCardsTypes(memoryInfo.getSupportCards())
+                .setRamType(memoryInfoEntity.getRamType())
+                .setRamSizeGb(memoryInfoEntity.getRamSizeGb())
+                .setHddSizeGb(memoryInfoEntity.getRamSizeGb())
+                .setMemoryCardMaxSizeGb(memoryInfoEntity.getMemoryCardMaxSizeGb())
+                .addAllSlots(memoryInfoEntity.getSlots())
+                .addAllSupportCardsTypes(memoryInfoEntity.getSupportCards())
                 .build();
     }
 
-    private CameraInfoProto toCameraInfoProto(CameraInfo cameraInfo) {
+    private CameraInfoProto toCameraInfoProto(CameraInfoEntity cameraInfoEntity) {
         return CameraInfoProto.newBuilder()
-                .setCameras(cameraInfo.getCameras())
-                .setMaxZoom(cameraInfo.getMaxZoom())
-                .addAllMegapixels(cameraInfo.getMegapixels())
-                .addAllSupportVideoResolutions(cameraInfo.getSupportedVideoResolutions())
-                .addAllSupportVideoCodecs(cameraInfo.getSupportedVideoCodecs())
+                .setCameras(cameraInfoEntity.getCameras())
+                .setMaxZoom(cameraInfoEntity.getMaxZoom())
+                .addAllMegapixels(cameraInfoEntity.getMegapixels())
+                .addAllSupportVideoResolutions(cameraInfoEntity.getSupportedVideoResolutions())
+                .addAllSupportVideoCodecs(cameraInfoEntity.getSupportedVideoCodecs())
                 .build();
     }
 
-    private AudioInfoProto toAudioInfoProto(AudioInfo audioInfo) {
+    private AudioInfoProto toAudioInfoProto(AudioInfoEntity audioInfoEntity) {
         return AudioInfoProto.newBuilder()
-                .addAllAudioCodecs(audioInfo.getAudioCodecs())
-                .setFmSupport(audioInfo.isFMSupported())
+                .addAllAudioCodecs(audioInfoEntity.getAudioCodecs())
+                .setFmSupport(audioInfoEntity.isFMSupported())
                 .build();
     }
 
-    private AdditionalInfoProto toAdditionalInfoProto(AdditionalInfo additionalInfo) {
+    private AdditionalInfoProto toAdditionalInfoProto(AdditionalInfoEntity additionalInfoEntity) {
         return AdditionalInfoProto.newBuilder()
-                .setBiometricSupport(additionalInfo.isBiometricSupport())
-                .setHeadphoneInBox(additionalInfo.isHeadphoneInBox())
-                .setChargeInBox(additionalInfo.isChargeInBox())
-                .addAllBoxInItems(additionalInfo.getBoxInItems())
+                .setBiometricSupport(additionalInfoEntity.isBiometricSupport())
+                .setHeadphoneInBox(additionalInfoEntity.isHeadphoneInBox())
+                .setChargeInBox(additionalInfoEntity.isChargeInBox())
+                .addAllBoxInItems(additionalInfoEntity.getBoxInItems())
                 .build();
     }
 
-    private AccumulatorInfoProto toAccumulatorInfoProto(AccumulatorInfo accumulatorInfo) {
+    private AccumulatorInfoProto toAccumulatorInfoProto(AccumulatorInfoEntity accumulatorInfoEntity) {
         return AccumulatorInfoProto.newBuilder()
-                .setAccumulatorType(accumulatorInfo.getAccumulatorType())
-                .setBatteryCapacity(accumulatorInfo.getBatteryCapacity())
-                .setFastCharge(accumulatorInfo.isFastCharge())
-                .setRemoteCharge(accumulatorInfo.isRemoteChargeSupport())
-                .setTtlMusicListening(accumulatorInfo.getTtlMusicListening())
-                .setTtlVideoViewing(accumulatorInfo.getTtlVideoViewing())
-                .setChargeInterface(accumulatorInfo.getChargeInterface())
-                .setOtgSupport(accumulatorInfo.isOTGSupport())
-                .setHeadphoneInterface(accumulatorInfo.getHeadphoneInterface())
+                .setAccumulatorType(accumulatorInfoEntity.getAccumulatorType())
+                .setBatteryCapacity(accumulatorInfoEntity.getBatteryCapacity())
+                .setFastCharge(accumulatorInfoEntity.isFastCharge())
+                .setRemoteCharge(accumulatorInfoEntity.isRemoteChargeSupport())
+                .setTtlMusicListening(accumulatorInfoEntity.getTtlMusicListening())
+                .setTtlVideoViewing(accumulatorInfoEntity.getTtlVideoViewing())
+                .setChargeInterface(accumulatorInfoEntity.getChargeInterface())
+                .setOtgSupport(accumulatorInfoEntity.isOTGSupport())
+                .setHeadphoneInterface(accumulatorInfoEntity.getHeadphoneInterface())
                 .build();
     }
 
-    private SizeInfoProto toSizeInfoProto(SizeInfo sizeInfo) {
+    private SizeInfoProto toSizeInfoProto(SizeInfoEntity sizeInfoEntity) {
         return SizeInfoProto.newBuilder()
-                .setLength(sizeInfo.getLength())
-                .setWidth(sizeInfo.getWidth())
-                .setHeight(sizeInfo.getHeight())
-                .setWeight(sizeInfo.getWeight())
+                .setLength(sizeInfoEntity.getLength())
+                .setWidth(sizeInfoEntity.getWidth())
+                .setHeight(sizeInfoEntity.getHeight())
+                .setWeight(sizeInfoEntity.getWeight())
                 .build();
     }
 
