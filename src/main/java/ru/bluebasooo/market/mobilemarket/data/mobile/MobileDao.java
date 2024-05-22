@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface MobileDao {
     Optional<MobileEntity> find(String id);
 
-    List<MobileEntity> findMobile();
-
     List<MobileEntity> findAll();
+
+    List<MobileEntity> findBatch(List<String> ids);
 }

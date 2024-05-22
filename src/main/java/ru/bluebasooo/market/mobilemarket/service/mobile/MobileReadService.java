@@ -31,12 +31,17 @@ public class MobileReadService {
         this.mobilesCache = new MobilesCache(allMobiles);
     }
 
+    public List<Mobile> findMobilesById(List<String> ids) {
+        return mobileDao.findBatch(ids)
+                .stream()
+                .map(mapper::toModel)
+                .toList();
+    }
+
     public Mobile findMobileById(String id) {
-        var mobile = mobileDao.find(id)
+        return mobileDao.find(id)
                 .map(mapper::toModel)
                 .orElseThrow(() -> new RuntimeException("Mobile not found by id: " + id));
-
-        return mobile;
     }
 
     public List<Mobile> findMobile(String name, List<MatchableFilter> filter) {

@@ -20,7 +20,7 @@ public class BasketCache { //TODO interface
         this.executorService = Executors.newFixedThreadPool(2);
     }
 
-    public BasketEntity getBasket(String id) {
+    public BasketEntity get(String id) {
         if (cache.contains(id)) {
             return cache.get(id);
         }
@@ -35,6 +35,10 @@ public class BasketCache { //TODO interface
         }
 
         return basket;
+    }
+
+    public void update(BasketEntity basket) {
+        cache.put(basket.getId(), basket);
     }
 
     private void fetchBaskets() {

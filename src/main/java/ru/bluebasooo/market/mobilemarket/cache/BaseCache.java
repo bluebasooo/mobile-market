@@ -34,6 +34,10 @@ public class BaseCache<Key, Value> { //TODO implement LRU + shard
             return;
         }
 
+        if(old.containsKey(key)) { //?
+            old.remove(key);
+        }
+
         hotCache.put(key, value);
         if (hotCache.size() > MAX_CACHE_SIZE) {
             cleanCache();
